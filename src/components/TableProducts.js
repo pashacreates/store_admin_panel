@@ -11,8 +11,14 @@ import Typography from "@material-ui/core/Typography";
 import Pagination from "@material-ui/lab/Pagination";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import TableBody from "@material-ui/core/TableBody";
-import {createStore} from "redux"
-//import { connect, Provider } from "react-redux"
+// import {createStore} from "redux"
+// import { connect, Provider } from "react-redux"
+
+// const rootReducer = (state, action) => {
+
+// }
+
+// const store = createStore();
 
 export default class TableProducts extends React.Component {
   constructor(props) {
@@ -82,7 +88,7 @@ export default class TableProducts extends React.Component {
         {this.state.loadProgress}
         <Table className="Table" size="small" aria-label="product table">
           <TableHead>
-            <TableRow>
+            <TableRow key="thead">
               <TableCell>Buttons</TableCell>
               <TableCell>Name</TableCell>
               <TableCell align="center">Price</TableCell>

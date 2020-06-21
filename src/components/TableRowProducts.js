@@ -12,6 +12,17 @@ export default class TableRowProducts extends React.Component {
   render() {
     const product = this.props.product;
 
+    function delColor(index){
+      
+      let colors = product.colors;
+      colors.splice(index,1);
+      const upColor = {
+        id: product.id,
+        colors: colors,
+      };
+      updateColors(upColor)
+    }
+
     return (
       <TableRow key={product.id}>
         <TableCell align="center">
@@ -31,18 +42,17 @@ export default class TableRowProducts extends React.Component {
           {product.name}
         </TableCell>
         <TableCell align="center">{product.price}</TableCell>
-        <TableCell align="center">
-          <img src={product.image} alt={product.name} />
-        </TableCell>
+        <TableCell align="center"><img src={product.image} alt={product.name} /></TableCell>
         <TableCell align="center">{product.desc}</TableCell>
         <TableCell>
-          <div className="colors-collection">
-            {product.colors.map((item) => (
-              <div>
+          <ul className="colors-collection">
+            {product.colors.map((item,index) => (
+              <li key={item.color}>
                 <p>{item.color}</p>
                 <div className="color-block" key={item.color}>
                   <img
                     src={item.colorUrl}
+                    alt={item.name}
                     title={item.color}
                     className="colors-img"
                   />
@@ -52,12 +62,12 @@ export default class TableRowProducts extends React.Component {
                     size="small"
                     className="color-del-but"
                     startIcon={<DeleteIcon />}
-                    onClick={() => updateColors(product)}
+                    onClick={() => delColor(index) }
                   />
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </TableCell>
       </TableRow>
     );

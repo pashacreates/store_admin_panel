@@ -25,3 +25,7 @@ body {
 .color-block{
   display: flex;
 }
+
+li{
+  list-style: none;
+}
