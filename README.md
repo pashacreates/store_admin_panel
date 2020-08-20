@@ -1,3 +1,6 @@
+Ссылка на хостинг
+https://online-store-admin-panel.firebaseapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
